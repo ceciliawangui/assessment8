@@ -1,17 +1,18 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Home from './components/Home.jsx';
 import Posts from './components/Post.jsx';
 
+const history = createBrowserHistory();
+
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/posts" component={Posts} />
-        </Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/posts" component={Posts} />
+        
       </div>
     </Router>
   );
